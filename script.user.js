@@ -2,7 +2,7 @@
 // @name AoPS Master Script
 // @description A master script for the Art of Problem Solving website
 // @author pi_Plus_45x23
-// @version 1.4
+// @version 1.4.1
 // @encoding utf-8
 // @license MIT; https://opensource.org/licenses/MIT
 // @icon https://assets.artofproblemsolving.com/images/apple-touch-icon.png
@@ -32,7 +32,7 @@
 // @resource jqUiCss https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css
 // @require https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
 // @require https://code.jquery.com/ui/1.12.1/jquery-ui.min.js
-// @require https://rawgit.com/eligrey/FileSaver.js/master/FileSaver.min.js
+// @require https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js
 // @require https://pastebin.com/raw/UCN2ihRr
 // @require https://rawgit.com/Frug/js-bbcode-parser/master/bbcode-parser.js
 // @require https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js
@@ -3040,7 +3040,7 @@
 
         (data) => {
           const $head = $(`
-            <head>
+            <template>
               <script src="http://artofproblemsolving.com/assets/vendor/jquery/2.1.3/jquery.min.js?v=1486" />
               <link rel="stylesheet" type="text/css" href="http://artofproblemsolving.com/m/schoolhouse/css/classroom.css" />
               <style type="text/css">
@@ -3063,12 +3063,12 @@
               </script>
               <script src="http://artofproblemsolving.com/assets/vendor/MathJax/MathJax.js" />
               <script>function onImageLoad() {}</script>
-            </head>
+            </template>
           `);
 
           const $transcript = $('<div />')
-          .addClass('messages')
-          .attr('style', 'width: 100%; height: 100%; position: relative; overflow: auto; box-sizing: border-box; padding: 5px; font-size: 14px;');
+            .addClass('messages')
+            .attr('style', 'width: 100%; height: 100%; position: relative; overflow: auto; box-sizing: border-box; padding: 5px; font-size: 14px;');
 
           if (data.response) {
             data.response.forEach((row) => {
@@ -3127,7 +3127,7 @@
                   [`
                     <html>
                       <head>
-                        ${$head.get().reduce((head, elem) => head + $(elem).html(), '')}
+                        ${$head.html()}
                       </head>
                       <body>${$transcript[0].outerHTML}</body>
                     </html>
