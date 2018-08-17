@@ -2,7 +2,7 @@
 // @name AoPS Master Script
 // @description A master script for the Art of Problem Solving website
 // @author pi_Plus_45x23
-// @version 1.4.1
+// @version 1.4.2
 // @encoding utf-8
 // @license MIT; https://opensource.org/licenses/MIT
 // @icon https://assets.artofproblemsolving.com/images/apple-touch-icon.png
@@ -757,8 +757,8 @@
             <h3>Miscellaneous</h3>
             The classroom loads all messages in the current day via infinite scroll.
             <br />
-            The part of the URL after <a href="http://artofproblemsolving.com/schoolhouse/room/">http://artofproblemsolving.com/schoolhouse/room/</a> is interpreted literally.
-            For example, going to <a href="http://artofproblemsolving.com/schoolhouse/room/1155F">http://artofproblemsolving.com/schoolhouse/room/1155F</a> will take you to room 1155F.
+            The part of the URL after <a href="https://artofproblemsolving.com/schoolhouse/room/">https://artofproblemsolving.com/schoolhouse/room/</a> is interpreted literally.
+            For example, going to <a href="https://artofproblemsolving.com/schoolhouse/room/1155F">https://artofproblemsolving.com/schoolhouse/room/1155F</a> will take you to room 1155F.
           </div>
         </div>
       `),
@@ -817,8 +817,8 @@
               )) // jshint ignore: line
                 .then((data) => {
                   avatars[username] = data.error_code
-                    ? 'http://avatar.artofproblemsolving.com/no_avatar.png' // jshint ignore: line
-                    : `http:${data.response.user_data.avatar}`;
+                    ? 'https://avatar.artofproblemsolving.com/no_avatar.png' // jshint ignore: line
+                    : `https:${data.response.user_data.avatar}`;
                   return avatars[username];
                 }); // jshint ignore: line
             })
@@ -1447,7 +1447,7 @@
               AoPS.session.username,
               AoPS.session.user_id,
               AoPS.session.id,
-              `ws://${Classroom.properties.host}:${Classroom.properties.port}`,
+              (Classroom.properties.ssl ? 'wss://' : 'ws://') + Classroom.properties.host + ':' + Classroom.properties.port,
             ); // jshint ignore: line
           },
         ); // jshint ignore: line
@@ -2394,97 +2394,97 @@
       Classroom.utils.smilies1,
 
       {
-        ':blush:': 'http://artofproblemsolving.com/assets/images/smilies/redface_anim.gif',
-        ':maybe:': 'http://artofproblemsolving.com/assets/images/smilies/unsure.gif',
-        ':-D': 'http://artofproblemsolving.com/assets/images/smilies/biggrin.gif',
-        ':mad:': 'http://artofproblemsolving.com/assets/images/smilies/mad.gif',
-        ':oops:': 'http://artofproblemsolving.com/assets/images/smilies/blush.gif',
-        ':roll:': 'http://artofproblemsolving.com/assets/images/smilies/rolleyes.gif',
-        ';)': 'http://artofproblemsolving.com/assets/images/smilies/wink.gif',
-        ':!:': 'http://artofproblemsolving.com/assets/images/smilies/exclaim.gif',
-        ':idea:': 'http://artofproblemsolving.com/assets/images/smilies/idea.gif',
-        ':arrow:': 'http://artofproblemsolving.com/assets/images/smilies/icon2.gif',
-        ':rotfl:': 'http://artofproblemsolving.com/assets/images/smilies/rotfl.gif',
-        ':huh:': 'http://artofproblemsolving.com/assets/images/smilies/huh.gif',
-        ':ninja:': 'http://artofproblemsolving.com/assets/images/smilies/ph34r.gif',
-        ':no:': 'http://artofproblemsolving.com/assets/images/smilies/sleep.gif',
-        ':love:': 'http://artofproblemsolving.com/assets/images/smilies/wub.gif',
-        ':wacko:': 'http://artofproblemsolving.com/assets/images/smilies/wacko.gif',
-        ':what?:': 'http://artofproblemsolving.com/assets/images/smilies/blink.gif',
-        ':alien:': 'http://artofproblemsolving.com/assets/images/smilies/alien_grn.gif',
-        ':cool:': 'http://artofproblemsolving.com/assets/images/smilies/cool.gif',
-        ':first:': 'http://artofproblemsolving.com/assets/images/smilies/first.gif',
-        ':dry:': 'http://artofproblemsolving.com/assets/images/smilies/dry.gif',
-        ':laugh:': 'http://artofproblemsolving.com/assets/images/smilies/laugh.gif',
-        ':coolspeak:': 'http://artofproblemsolving.com/assets/images/smilies/coolspeak.gif',
-        ':oops_sign:': 'http://artofproblemsolving.com/assets/images/smilies/oops.gif',
-        ':whistling:': 'http://artofproblemsolving.com/assets/images/smilies/whistling.gif',
-        ':yinyang:': 'http://artofproblemsolving.com/assets/images/smilies/yinyang.gif',
-        ':w00t:': 'http://artofproblemsolving.com/assets/images/smilies/w00t.gif',
-        ':pilot:': 'http://artofproblemsolving.com/assets/images/smilies/plane.gif',
-        ':play_ball:': 'http://artofproblemsolving.com/assets/images/smilies/play_ball.gif',
-        ':police:': 'http://artofproblemsolving.com/assets/images/smilies/police.gif',
-        ':read:': 'http://artofproblemsolving.com/assets/images/smilies/read.gif',
-        ':showoff:': 'http://artofproblemsolving.com/assets/images/smilies/showoff.gif',
-        ':sleep2:': 'http://artofproblemsolving.com/assets/images/smilies/sleep2.gif',
-        ':sleeping:': 'http://artofproblemsolving.com/assets/images/smilies/sleeping.gif',
-        ':spam:': 'http://artofproblemsolving.com/assets/images/smilies/spam.gif',
-        ':spidy:': 'http://artofproblemsolving.com/assets/images/smilies/spidy.gif',
-        ':starwars:': 'http://artofproblemsolving.com/assets/images/smilies/starwars.gif',
-        ':stink:': 'http://artofproblemsolving.com/assets/images/smilies/stink.gif',
-        ':strecher:': 'http://artofproblemsolving.com/assets/images/smilies/stretcher.gif',
-        ':cleaning:': 'http://artofproblemsolving.com/assets/images/smilies/suck_kr.gif',
-        ':surf:': 'http://artofproblemsolving.com/assets/images/smilies/surfing.gif',
-        ':surrender:': 'http://artofproblemsolving.com/assets/images/smilies/surrender.gif',
-        ':thumbup:': 'http://artofproblemsolving.com/assets/images/smilies/thumbup.gif',
-        ':trampoline:': 'http://artofproblemsolving.com/assets/images/smilies/trampoline.gif',
-        ':w00tb:': 'http://artofproblemsolving.com/assets/images/smilies/w00tbrows.gif',
-        ':wallbash:': 'http://artofproblemsolving.com/assets/images/smilies/wallbash.gif',
-        ':wallbash_red:': 'http://artofproblemsolving.com/assets/images/smilies/wallbash_red.gif',
-        ':weightlift:': 'http://artofproblemsolving.com/assets/images/smilies/weightlift.gif',
-        ':welcome:': 'http://artofproblemsolving.com/assets/images/smilies/welcome.gif',
-        ':welcomeani:': 'http://artofproblemsolving.com/assets/images/smilies/welcomeani.gif',
-        ':winner_first:': 'http://artofproblemsolving.com/assets/images/smilies/winner_first_h4h.gif',
-        ':winner_second:': 'http://artofproblemsolving.com/assets/images/smilies/winner_second_h4h.gif',
-        ':winner_third:': 'http://artofproblemsolving.com/assets/images/smilies/winner_third_h4h.gif',
-        ':wow:': 'http://artofproblemsolving.com/assets/images/smilies/wow.gif',
-        ':huuh:': 'http://artofproblemsolving.com/assets/images/smilies/wtf.gif',
-        ':yankchain:': 'http://artofproblemsolving.com/assets/images/smilies/yankchain.gif',
-        ':yup:': 'http://artofproblemsolving.com/assets/images/smilies/yes3.gif',
-        ':10:': 'http://artofproblemsolving.com/assets/images/smilies/10.gif',
-        ':heli:': 'http://artofproblemsolving.com/assets/images/smilies/heli.gif',
-        ':agent:': 'http://artofproblemsolving.com/assets/images/smilies/agent.gif',
-        ':bomb:': 'http://artofproblemsolving.com/assets/images/smilies/bomb.gif',
-        ':bruce:': 'http://artofproblemsolving.com/assets/images/smilies/bruce_h4h.gif',
-        ':bye:': 'http://artofproblemsolving.com/assets/images/smilies/byebye.gif',
-        ':censored:': 'http://artofproblemsolving.com/assets/images/smilies/censored.gif',
-        ':chief:': 'http://artofproblemsolving.com/assets/images/smilies/chieftain.gif',
-        ':clap:': 'http://artofproblemsolving.com/assets/images/smilies/clap.gif',
-        ':clap2:': 'http://artofproblemsolving.com/assets/images/smilies/clap2.gif',
-        ':coool:': 'http://artofproblemsolving.com/assets/images/smilies/cool1.gif',
-        ':ddr:': 'http://artofproblemsolving.com/assets/images/smilies/ddr.gif',
-        ':diablo:': 'http://artofproblemsolving.com/assets/images/smilies/diablo.gif',
-        ':evilgrin:': 'http://artofproblemsolving.com/assets/images/smilies/evilgrin.gif',
-        ':ewpu:': 'http://artofproblemsolving.com/assets/images/smilies/ewpu.gif',
-        ':flex:': 'http://artofproblemsolving.com/assets/images/smilies/flex.gif',
-        ':fool:': 'http://artofproblemsolving.com/assets/images/smilies/fool.gif',
-        ':football:': 'http://artofproblemsolving.com/assets/images/smilies/football.gif',
-        ':furious:': 'http://artofproblemsolving.com/assets/images/smilies/furious.gif',
-        ':gathering:': 'http://artofproblemsolving.com/assets/images/smilies/gathering.gif',
-        ':gleam:': 'http://artofproblemsolving.com/assets/images/smilies/gleam.gif',
-        ':harhar:': 'http://artofproblemsolving.com/assets/images/smilies/harhar.gif',
-        ':help:': 'http://artofproblemsolving.com/assets/images/smilies/helpsmilie.gif',
-        ':icecream:': 'http://artofproblemsolving.com/assets/images/smilies/icecream.gif',
-        ':juggle:': 'http://artofproblemsolving.com/assets/images/smilies/juggle[1].gif',
-        ':jump:': 'http://artofproblemsolving.com/assets/images/smilies/jump.gif',
-        ':moose:': 'http://artofproblemsolving.com/assets/images/smilies/mf_moose.gif',
-        ':nhl:': 'http://artofproblemsolving.com/assets/images/smilies/nhl.gif',
-        ':noo:': 'http://artofproblemsolving.com/assets/images/smilies/no.gif',
-        ':omighty:': 'http://artofproblemsolving.com/assets/images/smilies/notworthy.gif',
+        ':blush:': 'https://artofproblemsolving.com/assets/images/smilies/redface_anim.gif',
+        ':maybe:': 'https://artofproblemsolving.com/assets/images/smilies/unsure.gif',
+        ':-D': 'https://artofproblemsolving.com/assets/images/smilies/biggrin.gif',
+        ':mad:': 'https://artofproblemsolving.com/assets/images/smilies/mad.gif',
+        ':oops:': 'https://artofproblemsolving.com/assets/images/smilies/blush.gif',
+        ':roll:': 'https://artofproblemsolving.com/assets/images/smilies/rolleyes.gif',
+        ';)': 'https://artofproblemsolving.com/assets/images/smilies/wink.gif',
+        ':!:': 'https://artofproblemsolving.com/assets/images/smilies/exclaim.gif',
+        ':idea:': 'https://artofproblemsolving.com/assets/images/smilies/idea.gif',
+        ':arrow:': 'https://artofproblemsolving.com/assets/images/smilies/icon2.gif',
+        ':rotfl:': 'https://artofproblemsolving.com/assets/images/smilies/rotfl.gif',
+        ':huh:': 'https://artofproblemsolving.com/assets/images/smilies/huh.gif',
+        ':ninja:': 'https://artofproblemsolving.com/assets/images/smilies/ph34r.gif',
+        ':no:': 'https://artofproblemsolving.com/assets/images/smilies/sleep.gif',
+        ':love:': 'https://artofproblemsolving.com/assets/images/smilies/wub.gif',
+        ':wacko:': 'https://artofproblemsolving.com/assets/images/smilies/wacko.gif',
+        ':what?:': 'https://artofproblemsolving.com/assets/images/smilies/blink.gif',
+        ':alien:': 'https://artofproblemsolving.com/assets/images/smilies/alien_grn.gif',
+        ':cool:': 'https://artofproblemsolving.com/assets/images/smilies/cool.gif',
+        ':first:': 'https://artofproblemsolving.com/assets/images/smilies/first.gif',
+        ':dry:': 'https://artofproblemsolving.com/assets/images/smilies/dry.gif',
+        ':laugh:': 'https://artofproblemsolving.com/assets/images/smilies/laugh.gif',
+        ':coolspeak:': 'https://artofproblemsolving.com/assets/images/smilies/coolspeak.gif',
+        ':oops_sign:': 'https://artofproblemsolving.com/assets/images/smilies/oops.gif',
+        ':whistling:': 'https://artofproblemsolving.com/assets/images/smilies/whistling.gif',
+        ':yinyang:': 'https://artofproblemsolving.com/assets/images/smilies/yinyang.gif',
+        ':w00t:': 'https://artofproblemsolving.com/assets/images/smilies/w00t.gif',
+        ':pilot:': 'https://artofproblemsolving.com/assets/images/smilies/plane.gif',
+        ':play_ball:': 'https://artofproblemsolving.com/assets/images/smilies/play_ball.gif',
+        ':police:': 'https://artofproblemsolving.com/assets/images/smilies/police.gif',
+        ':read:': 'https://artofproblemsolving.com/assets/images/smilies/read.gif',
+        ':showoff:': 'https://artofproblemsolving.com/assets/images/smilies/showoff.gif',
+        ':sleep2:': 'https://artofproblemsolving.com/assets/images/smilies/sleep2.gif',
+        ':sleeping:': 'https://artofproblemsolving.com/assets/images/smilies/sleeping.gif',
+        ':spam:': 'https://artofproblemsolving.com/assets/images/smilies/spam.gif',
+        ':spidy:': 'https://artofproblemsolving.com/assets/images/smilies/spidy.gif',
+        ':starwars:': 'https://artofproblemsolving.com/assets/images/smilies/starwars.gif',
+        ':stink:': 'https://artofproblemsolving.com/assets/images/smilies/stink.gif',
+        ':strecher:': 'https://artofproblemsolving.com/assets/images/smilies/stretcher.gif',
+        ':cleaning:': 'https://artofproblemsolving.com/assets/images/smilies/suck_kr.gif',
+        ':surf:': 'https://artofproblemsolving.com/assets/images/smilies/surfing.gif',
+        ':surrender:': 'https://artofproblemsolving.com/assets/images/smilies/surrender.gif',
+        ':thumbup:': 'https://artofproblemsolving.com/assets/images/smilies/thumbup.gif',
+        ':trampoline:': 'https://artofproblemsolving.com/assets/images/smilies/trampoline.gif',
+        ':w00tb:': 'https://artofproblemsolving.com/assets/images/smilies/w00tbrows.gif',
+        ':wallbash:': 'https://artofproblemsolving.com/assets/images/smilies/wallbash.gif',
+        ':wallbash_red:': 'https://artofproblemsolving.com/assets/images/smilies/wallbash_red.gif',
+        ':weightlift:': 'https://artofproblemsolving.com/assets/images/smilies/weightlift.gif',
+        ':welcome:': 'https://artofproblemsolving.com/assets/images/smilies/welcome.gif',
+        ':welcomeani:': 'https://artofproblemsolving.com/assets/images/smilies/welcomeani.gif',
+        ':winner_first:': 'https://artofproblemsolving.com/assets/images/smilies/winner_first_h4h.gif',
+        ':winner_second:': 'https://artofproblemsolving.com/assets/images/smilies/winner_second_h4h.gif',
+        ':winner_third:': 'https://artofproblemsolving.com/assets/images/smilies/winner_third_h4h.gif',
+        ':wow:': 'https://artofproblemsolving.com/assets/images/smilies/wow.gif',
+        ':huuh:': 'https://artofproblemsolving.com/assets/images/smilies/wtf.gif',
+        ':yankchain:': 'https://artofproblemsolving.com/assets/images/smilies/yankchain.gif',
+        ':yup:': 'https://artofproblemsolving.com/assets/images/smilies/yes3.gif',
+        ':10:': 'https://artofproblemsolving.com/assets/images/smilies/10.gif',
+        ':heli:': 'https://artofproblemsolving.com/assets/images/smilies/heli.gif',
+        ':agent:': 'https://artofproblemsolving.com/assets/images/smilies/agent.gif',
+        ':bomb:': 'https://artofproblemsolving.com/assets/images/smilies/bomb.gif',
+        ':bruce:': 'https://artofproblemsolving.com/assets/images/smilies/bruce_h4h.gif',
+        ':bye:': 'https://artofproblemsolving.com/assets/images/smilies/byebye.gif',
+        ':censored:': 'https://artofproblemsolving.com/assets/images/smilies/censored.gif',
+        ':chief:': 'https://artofproblemsolving.com/assets/images/smilies/chieftain.gif',
+        ':clap:': 'https://artofproblemsolving.com/assets/images/smilies/clap.gif',
+        ':clap2:': 'https://artofproblemsolving.com/assets/images/smilies/clap2.gif',
+        ':coool:': 'https://artofproblemsolving.com/assets/images/smilies/cool1.gif',
+        ':ddr:': 'https://artofproblemsolving.com/assets/images/smilies/ddr.gif',
+        ':diablo:': 'https://artofproblemsolving.com/assets/images/smilies/diablo.gif',
+        ':evilgrin:': 'https://artofproblemsolving.com/assets/images/smilies/evilgrin.gif',
+        ':ewpu:': 'https://artofproblemsolving.com/assets/images/smilies/ewpu.gif',
+        ':flex:': 'https://artofproblemsolving.com/assets/images/smilies/flex.gif',
+        ':fool:': 'https://artofproblemsolving.com/assets/images/smilies/fool.gif',
+        ':football:': 'https://artofproblemsolving.com/assets/images/smilies/football.gif',
+        ':furious:': 'https://artofproblemsolving.com/assets/images/smilies/furious.gif',
+        ':gathering:': 'https://artofproblemsolving.com/assets/images/smilies/gathering.gif',
+        ':gleam:': 'https://artofproblemsolving.com/assets/images/smilies/gleam.gif',
+        ':harhar:': 'https://artofproblemsolving.com/assets/images/smilies/harhar.gif',
+        ':help:': 'https://artofproblemsolving.com/assets/images/smilies/helpsmilie.gif',
+        ':icecream:': 'https://artofproblemsolving.com/assets/images/smilies/icecream.gif',
+        ':juggle:': 'https://artofproblemsolving.com/assets/images/smilies/juggle[1].gif',
+        ':jump:': 'https://artofproblemsolving.com/assets/images/smilies/jump.gif',
+        ':moose:': 'https://artofproblemsolving.com/assets/images/smilies/mf_moose.gif',
+        ':nhl:': 'https://artofproblemsolving.com/assets/images/smilies/nhl.gif',
+        ':noo:': 'https://artofproblemsolving.com/assets/images/smilies/no.gif',
+        ':omighty:': 'https://artofproblemsolving.com/assets/images/smilies/notworthy.gif',
         ':o': 'https://artofproblemsolving.com/assets/images/smilies/ohmy.gif',
-        ':yoda:': 'http://artofproblemsolving.com/assets/images/smilies/yoda.gif',
-        ':cursing:': 'http://artofproblemsolving.com/assets/images/smilies/cursing.gif',
-        ':trial1:': 'http://artofproblemsolving.com/assets/images/smilies/trial1.gif',
+        ':yoda:': 'https://artofproblemsolving.com/assets/images/smilies/yoda.gif',
+        ':cursing:': 'https://artofproblemsolving.com/assets/images/smilies/cursing.gif',
+        ':trial1:': 'https://artofproblemsolving.com/assets/images/smilies/trial1.gif',
       },
     ); // jshint ignore: line
 
@@ -3041,8 +3041,8 @@
         (data) => {
           const $head = $(`
             <template>
-              <script src="http://artofproblemsolving.com/assets/vendor/jquery/2.1.3/jquery.min.js?v=1486" />
-              <link rel="stylesheet" type="text/css" href="http://artofproblemsolving.com/m/schoolhouse/css/classroom.css" />
+              <script src="https://artofproblemsolving.com/assets/vendor/jquery/2.1.3/jquery.min.js?v=1486" />
+              <link rel="stylesheet" type="text/css" href="https://artofproblemsolving.com/m/schoolhouse/css/classroom.css" />
               <style type="text/css">
                 span.action.quote,
                 span.action.delete,
@@ -3061,7 +3061,7 @@
               <script type="text/x-mathjax-config">
                 ${$('script[type="text/x-mathjax-config;executed=true"]').text()}
               </script>
-              <script src="http://artofproblemsolving.com/assets/vendor/MathJax/MathJax.js" />
+              <script src="https://artofproblemsolving.com/assets/vendor/MathJax/MathJax.js" />
               <script>function onImageLoad() {}</script>
             </template>
           `);
@@ -3088,8 +3088,8 @@
                       $(link).attr(
                         'href',
                         (href.match(/^\//)
-                         ? 'http://artofproblemsolving.com' // jshint ignore: line
-                         : 'http://artofproblemsolving.com/schoolhouse/room/')
+                         ? 'https://artofproblemsolving.com' // jshint ignore: line
+                         : 'https://artofproblemsolving.com/schoolhouse/room/')
                         + href, // jshint ignore: line
                       ); // jshint ignore: line
                     } else if (href && href.match(/^\/\/:/)) {
@@ -3104,8 +3104,8 @@
                       $(img).attr(
                         'src',
                         (src.match(/^\//)
-                         ? 'http://artofproblemsolving.com' // jshint ignore: line
-                         : 'http://artofproblemsolving.com/schoolhouse/room/')
+                         ? 'https://artofproblemsolving.com' // jshint ignore: line
+                         : 'https://artofproblemsolving.com/schoolhouse/room/')
                         + src, // jshint ignore: line
                       ); // jshint ignore: line
                     } else if (src && src.match(/^\/\//)) {
